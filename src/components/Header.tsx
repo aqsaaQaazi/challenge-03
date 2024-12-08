@@ -1,14 +1,16 @@
 'use client'
-
+import SubHeader from './Subheader'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Box, Search, ShoppingCart, User } from 'lucide-react'
+import { Box, Search } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
+    
     <header className="bg-white shadow-md">
+      <SubHeader></SubHeader>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           Logo
@@ -25,12 +27,7 @@ const Header = () => {
           <button aria-label="Search">
             <Search className="w-6 h-6" />
           </button>
-          <button aria-label="User account">
-            <User className="w-6 h-6" />
-          </button>
-          <button aria-label="Shopping cart">
-            <ShoppingCart className="w-6 h-6" />
-          </button>
+
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
