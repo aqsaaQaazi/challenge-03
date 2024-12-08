@@ -18,7 +18,7 @@ export default function Footer() {
                                     type="text"
                                     placeholder="Enter Email Address"
                                 />
-                                <button className="bg-[#FB2E86] active:bg-opacity-55 text-white text-xs px-6 py-2 md:-ml-4 rounded-[3px] mt-2 md:mt-0 md:rounded-none md:rounded-r-sm">
+                                <button className="bg-pink active:bg-opacity-55 text-white text-xs px-6 py-2 md:-ml-4 rounded-[3px] mt-2 md:mt-0 md:rounded-none md:rounded-r-sm">
                                     Sign Up
                                 </button>
                             </div>
