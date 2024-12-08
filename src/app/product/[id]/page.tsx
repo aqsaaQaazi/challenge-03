@@ -1,23 +1,34 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { useCart } from '../../contexts/CartContext'
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { useCart } from '../../contexts/CartContext';
 
-// This would typically come from an API or database
-const product = {
-  id: 1,
-  name: 'Sample Product',
-  price: 99.99,
-  description: 'This is a sample product description. It would typically contain detailed information about the product, its features, and benefits.',
-  images: ['/images/product-1.jpg', '/images/product-2.jpg', '/images/product-3.jpg'],
-}
+export default function ProductPage({ params }: { params: { id: unknown } }) {
+  const [product, setProduct] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const { addToCart } = useCart()
+ 
+  useEffect(() => {
+    async function loadProduct() {
+      try {
+        const res = await fetch(`/api/products/${params.id}`);
+        if (!res.ok) throw new Error('Product not found');
+        const data = await res.json();
+        setProduct(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    loadProduct();
+  }, [params.id]);
+
+  if (!product) {
+    return <div className="container mx-auto px-4 py-8">Loading product...</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -33,7 +44,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             />
           </div>
           <div className="flex space-x-4">
-            {product.images.map((image, index) => (
+            {product.images.map((image: string, index: number) => (
               <Button
                 key={index}
                 onClick={() => setSelectedImage(index)}
@@ -61,7 +72,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               id="quantity"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(parseInt(e.target.value))}
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
               className="border rounded px-2 py-1 w-16 text-center"
             />
           </div>
@@ -72,7 +83,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 name: product.name,
                 price: product.price,
                 quantity: quantity,
-              })
+              });
             }}
             className="w-full"
           >
@@ -81,6 +92,5 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
