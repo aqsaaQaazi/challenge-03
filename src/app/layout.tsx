@@ -12,7 +12,7 @@ const lato = Lato({
 
 
 export const metadata = {
-  title: 'Ecommerce Project',
+  title: 'Ecommerce Project Hecto',
   description: 'A pixel-perfect ecommerce website',
 }
 
