@@ -1,10 +1,15 @@
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer2.0'
 import { CartProvider } from '../app/contexts/CartContext'
+import { Lato } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700']
+});
+
 
 export const metadata = {
   title: 'Ecommerce Project',
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={lato.className}>
         <CartProvider>
           <Header />
           <main>{children}</main>
