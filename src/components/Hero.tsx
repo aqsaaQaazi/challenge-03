@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Banner(){
   return (
-    <main id="banner" className="w-full bg-[#F2F0FF]">
+    <main id="banner" className="w-full bg-[#f2f0ff] font-lato">
       <div className="wrapper relative py-[55px]">
         {/* --- banner main content start --- */}
         <div className="flex items-center justify-center py-10">
@@ -13,17 +13,16 @@ export default function Banner(){
             <div className="grid grid-cols-1 items-center lg:grid-cols-2">
               {/* --- left side start --- */}
               <div className="text-center lg:text-left">
-                <p className="text-[14px] text-[#FB2E86] font-normal leading-5">
-                  Best Furniture For Your Castle....
+                <p className="text-[14px] text-pink font-normal font-josefin leading-5">
+                  Buy The Best For Your Palace...
                 </p>
-                <h1 className="text-[32px] sm:text-[36px] md:text-[40px] font-bold leading-[48px] py-7">
+                <h1 className="text-[32px] sm:text-[36px] md:text-[40px] font-josefin font-bold leading-[48px] py-7">
                   New Furniture Collection Trends in 2024
                 </h1>
-                <p className="text-[16px] text-[#8A8FB9] font-normal leading-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
-                  in est adipiscing in phasellus non in justo
+                <p className="text-[16px] text-pantone-purple font-normal font-lato leading-6">
+                  All you need to design the Best and Cozy interior for your comfy Home. Happy Shopping.!
                 </p>
-                <button className="bg-[#FB2E86] text-white mt-10 px-6 py-2 rounded-[3px] border-[1px] border-[#FB2E86] hover:bg-white hover:text-[#FB2E86] hover:border-[1px] hover:border-pink-600">
+                <button className="bg-pink text-white mt-10 px-6 py-2 rounded-[3px] border-[1px] border-pink hover:bg-white hover:text-pink hover:border-[1px] hover:border-pink transition-all duration-300">
                   Shop Now
                 </button>
               </div>

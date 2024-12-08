@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import { Josefin_Sans, Lato } from "next/font/google"
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -18,9 +19,8 @@ module.exports = {
     },
     extend: {
       fontFamily:{
-        josefin : ['Josefin_Sans', 'Sans'],
-        lato: ['Lato'],
-
+        josefin: ['Josefin Sans', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
