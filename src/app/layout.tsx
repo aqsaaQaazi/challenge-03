@@ -13,7 +13,7 @@ const lato = Lato({
 
 export const metadata = {
   title: 'Ecommerce Project Hecto',
-  description: 'A pixel-perfect ecommerce website',
+  description: 'A pixel-perfect ecommerce website cloned by by Aqsaa Qaazi',
 }
 
 export default function RootLayout({

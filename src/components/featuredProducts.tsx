@@ -12,9 +12,9 @@ export default function FeatureProducts() {
 
       {/* card */}
       <div >
-       {featureProducts.map((=> {
+       {featureProducts.map(()=> {
         
-       }))
+       })
 
        }
       </div>
